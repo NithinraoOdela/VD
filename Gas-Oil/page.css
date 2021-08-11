@@ -1,0 +1,32 @@
+.page{
+    color: rgb(227, 235, 235);
+    display: flex;
+    margin-left: 45px;
+    margin-top: -32px;
+    text-decoration: none;
+    
+    
+}
+#page{
+    color: aquamarine;
+}
+#pagee{
+    color: aquamarine;
+}
+#pa{
+    color: aquamarine;
+}
+.pagee:hover{
+    color: aquamarine;
+}
+.kk{
+    color: aquamarine;
+}
+.pagee{
+    color: rgb(227, 235, 235);
+    display: flex;
+    margin-left: 45px;
+    margin-top: -32px;
+    text-decoration: none;
+    
+}

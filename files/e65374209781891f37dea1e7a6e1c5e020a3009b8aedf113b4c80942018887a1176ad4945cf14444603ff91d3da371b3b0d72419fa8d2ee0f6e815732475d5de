@@ -1,0 +1,271 @@
+{
+ "name": "fl....................................",
+ "children": [
+  {
+   "name": "Intensity",
+   "children": [
+    {
+     "name": "intensity-1" ,
+     
+     "children": [
+      {"name": "economy", "value": 3938},
+      {"name": "policy", "value": 3812},
+      {"name": "biofuel", "value": 6714},
+      {"name": "MergeEdge", "value": 0}
+     ]
+    },
+    {
+     "name": "intensity-2",
+     "children": [
+      {"name": "battery", "value": 3938},
+      {"name": "export", "value": 3812},
+      {"name": "HierarchicalCluster", "value": 0},
+      {"name": "war", "value": 743}
+     ]
+    },
+    {
+     "name": "intensity-3",
+     "children": [
+      {"name": "gdp", "value": 3938},
+      {"name": "policy", "value": 3812},
+      {"name": "battery", "value": 6714},
+      {"name": "MergeEdge", "value": 0}
+     ]
+    },
+    {
+     "name": "intensity-4",
+     "children": [
+      {"name": "consumption", "value": 3938},
+      {"name": "gas", "value": 3812},
+      {"name": "oil", "value": 6714},
+      {"name": "MergeEdge", "value": 0}
+     ]
+    },
+    {
+     "name": "intensity-5",
+     "children": [
+      {"name": "production", "value": 3938},
+      {"name": "war", "value": 3812},
+      {"name": "market", "value": 6714},
+      {"name": "MergeEdge", "value": 0}
+     ]
+    },
+    
+
+    
+    {
+     
+    }
+   ]
+  },
+  {
+   "name": "Likelihood",
+   "children": [
+    {"name": "likelihood-1", "value": 7010},
+    
+
+    {"name": "likelihood-2", "value": 5041},
+    {"name": "likelihood-3", "value": 5176},
+
+    
+    
+    
+    
+    {"name": "likelihood-4", "value": 3006}
+   ]
+  },
+ 
+  {
+   "name": "Region",
+   "children": [
+    {"name": "Central Africa", "value": 8833},
+    {"name": "Western Asia", "value": 1732},
+    {"name": "Western Africa", "value": 3623},
+    {"name": "Northern America", "value": 3623},
+    {"name": "Central America", "value": 3623},
+    {"name": "World", "value": 10066}
+
+   ]
+  },
+  {
+   "name": "City",
+   "children": [
+    {"name": "FlareVis", "value": 0}
+   ]
+  },
+  {
+   "name": "Topics",
+   "children": [
+    {"name": "growth", "value": 1082},
+    {"name": "robot", "value": 1336},
+    {"name": "market", "value": 319},
+    {"name": "gas", "value": 10498},
+    {"name": "oil", "value": 2822},
+    {"name": "strategy", "value": 9983},
+    
+    {"name": "SpringForce", "value": 0}
+   ]
+  },
+  {
+   "name": "Relevance",
+   "children": [
+    
+
+    {
+     "name": "Relevance-1",
+     "children": [
+      {"name": "add", "value": 593},
+      {"name": "and", "value": 330},
+      {"name": "average", "value": 287},
+      {"name": "count", "value": 277},
+      {"name": "distinct", "value": 292},
+      {"name": "div", "value": 595},
+   
+      {"name": "not", "value": 386},
+      {"name": "or", "value": 323},
+      {"name": "orderby", "value": 307},
+      {"name": "range", "value": 772},
+      {"name": "select", "value": 296},
+      {"name": "stddev", "value": 363},
+      {"name": "sub", "value": 600},
+      {"name": "sum", "value": 280},
+      {"name": "update", "value": 307},
+      {"name": "variance", "value": 335},
+      {"name": "where", "value": 299},
+      {"name": "xor", "value": 354},
+      {"name": "_", "value": 264}
+     ]
+    },
+    {
+     "name": "Relevance-2",
+     "children": [
+      {"name": "add", "value": 593},
+      {"name": "and", "value": 330},
+      {"name": "average", "value": 287},
+      {"name": "count", "value": 277},
+      {"name": "distinct", "value": 292},
+      {"name": "div", "value": 595},
+   
+      {"name": "not", "value": 386},
+      {"name": "or", "value": 323},
+      {"name": "orderby", "value": 307},
+      {"name": "range", "value": 772},
+      {"name": "select", "value": 296},
+      {"name": "stddev", "value": 363},
+      {"name": "sub", "value": 600},
+      {"name": "sum", "value": 280},
+      {"name": "update", "value": 307},
+      {"name": "variance", "value": 335},
+      {"name": "where", "value": 299},
+      {"name": "xor", "value": 354},
+      {"name": "_", "value": 264}
+     ]
+    },
+    {
+     "name": "Relevance-3",
+     "children": [
+      {"name": "add", "value": 593},
+      {"name": "and", "value": 330},
+      {"name": "average", "value": 287},
+      {"name": "count", "value": 277},
+      {"name": "distinct", "value": 292},
+      {"name": "div", "value": 595},
+   
+      {"name": "not", "value": 386},
+      {"name": "or", "value": 323},
+      {"name": "orderby", "value": 307},
+      {"name": "range", "value": 772},
+      {"name": "select", "value": 296},
+      {"name": "stddev", "value": 363},
+      {"name": "sub", "value": 600},
+      {"name": "sum", "value": 280},
+      {"name": "update", "value": 307},
+      {"name": "variance", "value": 335},
+      {"name": "where", "value": 299},
+      {"name": "xor", "value": 354},
+      {"name": "_", "value": 264}
+     ]
+    },
+    {
+     "name": "Relevance-4",
+     "children": [
+      {"name": "add", "value": 593},
+      {"name": "and", "value": 330},
+      {"name": "average", "value": 287},
+      {"name": "count", "value": 277},
+      {"name": "distinct", "value": 292},
+      {"name": "div", "value": 595},
+   
+      {"name": "not", "value": 386},
+      {"name": "or", "value": 323},
+      {"name": "orderby", "value": 307},
+      {"name": "range", "value": 772},
+      {"name": "select", "value": 296},
+      {"name": "stddev", "value": 363},
+      {"name": "sub", "value": 600},
+      {"name": "sum", "value": 280},
+      {"name": "update", "value": 307},
+      {"name": "variance", "value": 335},
+      {"name": "where", "value": 299},
+      {"name": "xor", "value": 354},
+      {"name": "_", "value": 264}
+     ]
+    },
+    {
+     "name": "Relevance-5",
+     "children": [
+      {"name": "add", "value": 593},
+      {"name": "and", "value": 330},
+      {"name": "average", "value": 287},
+      {"name": "count", "value": 277},
+      {"name": "distinct", "value": 292},
+      {"name": "div", "value": 595},
+   
+      {"name": "not", "value": 386},
+      {"name": "or", "value": 323},
+      {"name": "orderby", "value": 307},
+      {"name": "range", "value": 772},
+      {"name": "select", "value": 296},
+      {"name": "stddev", "value": 363},
+      {"name": "sub", "value": 600},
+      {"name": "sum", "value": 280},
+      {"name": "update", "value": 307},
+      {"name": "variance", "value": 335},
+      {"name": "where", "value": 299},
+      {"name": "xor", "value": 354},
+      {"name": "_", "value": 264}
+     ]
+    },
+ 
+
+
+    {"name": "Relevance-5", "value": 0}
+   ]
+  },
+  {
+   "name": "Country",
+   "children": [
+    {"name": "Brazil", "value": 2105},
+    {"name": "Libya", "value": 1316},
+    {"name": "United States of America", "value": 3151},
+    {"name": "Mexico", "value": 3770},
+
+    {"name": "TimeScale", "value": 0}
+   ]
+  },
+  {
+   "name": "Year",
+   "children": [
+    {"name": "2019", "value": 8258},
+    {"name": "2018", "value": 10001},
+    {"name": "2200", "value": 8217},
+    {"name": "2040", "value": 12555},
+    {"name": "2025", "value": 2324},
+    {"name": "Geometry", "value": 0},
+ 
+  
+    {"name": "Visualization", "value": 0}
+   ]
+  }
+ ]
+}

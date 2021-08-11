@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
+        <link rel="stylesheet" href="page.css">
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Visualization Dashboard</title>
+      </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebar"
+            aria-controls="offcanvasExample"
+          >
+            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+          </button>
+          <a
+            class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+            href="#"
+            >  <h6> Visualization Dashboard</h6></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#topNavBar"
+            aria-controls="topNavBar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="topNavBar">
+            <form class="d-flex ms-auto my-3 my-lg-0">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-primary" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle ms-2"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-person-fill"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- top navigation bar -->
+      <!-- offcanvas -->
+      <div
+      class="offcanvas offcanvas-start sidebar-nav bg-dark"
+      tabindex="-1"
+      id="sidebar"
+    >
+      <div class="offcanvas-body p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav">
+           
+            <li>
+              <a
+                class="nav-link px-3 sidebar-link"
+                data-bs-toggle="collapse"
+                href="#layouts"
+              >
+                <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                <span><a href="../index.html" class="pagee" >Dashboard</a></span>
+                <span class="ms-auto">
+                  <span class="right-icon">
+                    <i class="bi bi-chevron-down"></i>
+                  </span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-book-fill"></i></span>
+                <span><a href="./pages.html" class="page" id="page">Intensity</a></span>
+                
+              </a>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-lamp"></i></span>
+                <span><a href="" class="page" >Likelihood</a></span>
+                
+              </a>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-umbrella"></i></span>
+                <span><a href="" class="page"> Relevance</a></span>
+                
+              </a>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-calendar"></i></span>
+                <span><a href="" class="page"> Year</a></span>
+                
+              </a>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-geo"></i></span>
+                <span><a href="" class="page">Country</a></span>
+                
+              </a>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-chat-dots-fill"></i></span>
+                <span><a href="" class="page">Topics</a></span>
+                
+              </a>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-shop"></i></span>
+                <span><a href="./region.html" class="page">Region</a></span>
+                
+              </a>
+
+            </li>
+            <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
+                Filters
+              </div>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-map"></i></span>
+                <span>City</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-geo"></i></span>
+                <span>Country</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-calendar"></i></span>
+                <span>Year</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-globe"></i></span>
+                <span> Source</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-app"></i></span>
+                <span> PEST</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-shop"></i></span>
+                <span>Region</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-aspect-ratio"></i></span>
+                <span>Sector</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span class="me-2"><i class="bi bi-chat-dots-fill"></i></span>
+                <span>Topics</span>
+              </a>
+            </li>
+
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <main class="mt-5 pt-3">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Intensity</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <div class="card bg-primary text-white h-100">
+                <div class="card-body py-5">Intensity-1</div>
+                <div class="card-footer d-flex">
+                  View Details
+                  <span class="ms-auto">
+                    <i class="bi bi-chevron-right"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card bg-warning text-dark h-100">
+                <div class="card-body py-5">Intensity-2</div>
+                <div class="card-footer d-flex">
+                  View Details
+                  <span class="ms-auto">
+                    <i class="bi bi-chevron-right"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card bg-success text-white h-100">
+                <div class="card-body py-5">Intensity-3</div>
+                <div class="card-footer d-flex">
+                  View Details
+                  <span class="ms-auto">
+                    <i class="bi bi-chevron-right"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="card bg-danger text-white h-100">
+                <div class="card-body py-5">Intensity-4</div>
+                <div class="card-footer d-flex">
+                  View Details
+                  <span class="ms-auto">
+                    <i class="bi bi-chevron-right"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="width: 1000px;">
+            <div class="col-md-6 mb-3" style="width: 1000px;">
+              <div class="card h-100" style="width: 1000px;" >
+                <div class="card-header"style="width: 1000px;" >
+                  <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                  Area Chart Example
+                </div>
+                <div class="card-body"  style="width: 1000px;">
+                  <canvas class="chart" width="900px" height="500"></canvas>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <div class="card">
+                <div class="card-header">
+                  <span><i class="bi bi-table me-2"></i></span> Data Table
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table
+                      id="example"
+                      class="table table-striped data-table"
+                      style="width: 100%"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Country</th>
+                          <th>Sector</th>
+                          <th>Topic</th>
+                          <th>Year</th>
+                          <th>Region</th>
+                          <th>Livelihood</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Angola</td>
+                          <td>Energy</td>
+                          <td>growth</td>
+                          <td>2019</td>
+                          <td>Eastern Africa</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>United States of America</td>
+                          <td>Environment</td>
+                          <td>export</td>
+                          <td>2013</td>
+                          <td>Northern America</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>Egypt</td>
+                          <td>Government</td>
+                          <td>tension</td>
+                          <td>2014</td>
+                          <td>Southern Europe</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>South Africa</td>
+                          <td>Aerospace & defence</td>
+                          <td>terrorism</td>
+                          <td>2017</td>
+                          <td>Eastern Europe</td>
+                          <td>8</td>
+                        </tr>
+                        <tr>
+                          <td>India</td>
+                          <td>Manufacturing</td>
+                          <td>energy</td>
+                          <td>2018</td>
+                          <td>World</td>
+                          <td>11</td>
+                        </tr>
+                        <tr>
+                          <td>Saudi Arabia</td>
+                          <td>Retail</td>
+                          <td>gas</td>
+                          <td>2012</td>
+                          <td>Southern Asia</td>
+                          <td>9</td>
+                        </tr>
+                        <tr>
+                          <td>Ukraine</td>
+                          <td>Financial services</td>
+                          <td>transport</td>
+                          <td>2014</td>
+                          <td>Western Asia</td>
+                          <td>10</td>
+                        </tr>
+                        <tr>
+                          <td>Azerbaijan</td>
+                          <td>Support services</td>
+                          <td>oil</td>
+                          <td>2001</td>
+                          <td>Northern America</td>
+                          <td>3</td>
+                        </tr>
+                        <tr>
+                          <td>Indonesia</td>
+                          <td>Information Technology</td>
+                          <td>peak oil</td>
+                          <td>2005</td>
+                          <td>South-Eastern Asia</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>China</td>
+                          <td>Healthcare</td>
+                          <td>vehicle</td>
+                          <td>2007</td>
+                          <td>Eastern Africa</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <td>Denmark</td>
+                          <td>Automotive</td>
+                          <td>tourist</td>
+                          <td>2014</td>
+                          <td>Northern America</td>
+                          <td>2</td>
+                        </tr>
+                        
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <script src="./js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+      <script src="./js/jquery-3.5.1.js"></script>
+      <script src="./js/jquery.dataTables.min.js"></script>
+      <script src="./js/dataTables.bootstrap5.min.js"></script>
+      <script src="./js/script.js"></script>
+</body>
+</html>

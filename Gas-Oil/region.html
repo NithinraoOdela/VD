@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <script defer src="DFD.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./inspector.css">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" type="text/css" href="./inspector.css">
+    <link rel="stylesheet" href="./page.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Visualization Dashboard</title>
+    </head>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h5{
+            color: rgb(42, 165, 97);
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        p {
+            color: rgb(233, 16, 16);
+            font-size: 18px;
+        }
+
+
+        @media screen and (max-width:1000px) {
+            .mapboxgl-popup {
+                max-width: 200px;
+                background-color: rgb(221, 0, 0);
+
+                font: 2px/2px 'Gowun Batang', serif;
+
+            }
+        }
+
+
+        .mapboxgl-popup {
+            max-width: 900px;
+            background-color: rgb(25, 216, 67);
+
+            font: 12px/22px 'Gowun Batang', serif;
+            border-radius: 55px;
+        }
+    </style>
+    <title>COVID LIVE CASES - (NITHIN)</title>
+</head>
+
+<body>
+
+    <div id='map'></div>
+
+
+
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
+        type="text/css">
+
+    <!-- Promise polyfill script is required -->
+    <!-- to use Mapbox GL Geocoder in IE 11. -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+
+
+
+
+
+</body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " style="display: none;">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebar"
+        aria-controls="offcanvasExample"
+      >
+        <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+      </button>
+      <a
+        class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+        href="#"
+        > <h6>Visualization Dashboard</H6> </a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#topNavBar"
+        aria-controls="topNavBar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="topNavBar">
+        <form class="d-flex ms-auto my-3 my-lg-0">
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-primary" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle ms-2"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- top navigation bar -->
+  <!-- offcanvas -->
+  <div
+    class="offcanvas offcanvas-start sidebar-nav bg-dark" style=" margin-top: -30px;"
+    tabindex="-1"
+    id="sidebar"
+  >
+    <div class="offcanvas-body p-0">
+      <nav class="navbar-dark">
+        <ul class="navbar-nav">
+         
+          <li>
+            <a
+              class="nav-link px-3 sidebar-link"
+              data-bs-toggle="collapse"
+              href="#layouts"
+            >
+              <span class="me-2"><i class="bi bi-layout-split"></i></span>
+              <span><a href="../index.html" class="pagee" >Dashboard</a></span>
+              <span class="ms-auto">
+                <span class="right-icon">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </span>
+            </a>
+            <div class="collapse" id="layouts">
+              <ul class="navbar-nav ps-3">
+                <li>
+                  <a href="#" class="nav-link px-3">
+                    <span class="me-2"
+                      ><i class="bi bi-speedometer2"></i
+                    ></span>
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-book-fill"></i></span>
+              <span><a href="./pages.html" class="page">Intensity</a></span>
+              
+            </a>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-lamp"></i></span>
+              <span><a href="" class="page">Likelihood</a></span>
+              
+            </a>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-umbrella"></i></span>
+              <span><a href="" class="page"> Relevance</a></span>
+              
+            </a>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-calendar"></i></span>
+              <span><a href="" class="page"> Year</a></span>
+              
+            </a>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-geo"></i></span>
+              <span><a href="" class="page">Country</a></span>
+              
+            </a>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-chat-dots-fill"></i></span>
+              <span><a href="" class="page">Topics</a></span>
+              
+            </a>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-shop"></i></span>
+              <span><a href=""  id="pa" class="page">Region</a></span>
+              
+            </a>
+
+          </li>
+          <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
+          <li>
+            <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
+              Filters
+            </div>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-map"></i></span>
+              <span>City</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-geo"></i></span>
+              <span>Country</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-calendar"></i></span>
+              <span>Year</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-globe"></i></span>
+              <span> Source</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-app"></i></span>
+              <span> PEST</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-shop"></i></span>
+              <span>Region</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-aspect-ratio"></i></span>
+              <span>Sector</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3">
+              <span class="me-2"><i class="bi bi-chat-dots-fill"></i></span>
+              <span>Topics</span>
+            </a>
+          </li>
+
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<script>
+
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFycnkxMjM0OTgiLCJhIjoiY2s4OXh1c3BqMGFsZzNvbXA3YmYyaGFhYSJ9.wmVMiMxlSqpzJPsj-UXr3Q';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/basic-v9',
+        zoom: 1.2,
+        center: [0, 20]
+    });
+
+    function setupMap(center) {
+        const nav = new mapboxgl.NavigationControl()
+        map.addControl(nav, "top-left")
+
+    }
+
+
+
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+
+
+        })
+    );
+
+    var popup = new mapboxgl.Popup({ closeOnClick: false, })
+
+        .setLngLat([-9, 37.8])
+        .setHTML('<h1><strong>OIL and GAS Companies</strong>  <strong> </strong><strong><strong></h1>')
+        // color = black
+        // .setColour([black])
+        .setMaxWidth("900px")
+        // .setMaxHeight("200px")
+        // .setText('Hello, world!  idjio \n jkklk ')
+        // .trackPointer()
+        .addTo(map);
+
+
+    map.addControl(new mapboxgl.FullscreenControl({ container: document.querySelector('body') }));
+
+
+
+
+
+    map.on('load', function () {
+        // Add a new vector tile source with ID 'mapillary'.
+        map.addSource('mapillary', {
+            'type': 'vector',
+            'tiles': [
+                'https://tiles.mapillary.com/maps/vtp/mly1_public/2/{z}/{x}/{y}'
+            ],
+            'minzoom': 6,
+            'maxzoom': 14
+        });
+        map.addLayer(
+            {
+                'id': 'mapillary', // Layer ID
+                'type': 'line',
+                'source': 'mapillary', // ID of the tile source created above
+                // Source has several layers. We visualize the one with name 'sequence'.
+                'source-layer': 'sequence',
+                'layout': {
+                    'line-cap': 'round',
+                    'line-join': 'round'
+                },
+                'paint': {
+                    'line-opacity': 0.6,
+                    'line-color': 'rgb(53, 175, 109)',
+                    'line-width': 2
+                }
+            },
+            'road-label' // Arrange our new layer beneath this layer
+        );
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+
+
+    map.on('load', function () {
+        map.addSource('places', {
+            'type': 'geojson',
+            'data': {
+                'type': 'FeatureCollection',
+                'features': [
+                    
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspAngola</h6></strong><H5> Sector:Energy, Topic: gas, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 6, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 3,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance: 2</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [18.30, 12.30]
+                        }
+                    },
+                    
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspAzerbaijan</h6></strong><H5>Sector:Energy, Topic: gas, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 6, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 3,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance: 2</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [49.30, 40.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspChina&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp</h6></strong><H5> Sector:Energy,</H5><H5> Topic: gas, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 6, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 3,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance: 2</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [114.30, 30.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspUkraine</h6></strong><H5> Sector:Government,Topic: vehicle, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 1,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance: 8</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [32.30, 49.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspSouth Africa</h6></strong><H5> Sector:Government,</H5><H5>Topic: vehicle, </H5> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 1,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance: 8</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [22.30, -30.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4> &nbsp&nbsp&nbspSaudi Arabia&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h6></strong><H5> Sector:Government,</H5><H5>Topic: vehicle, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 1,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance: 8</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [45.30, 23.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspIndonesia</h6></strong><H5> Sector:HealthCare, Topic: Oil, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 6,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance:4 </p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [119.30, 1.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspIndia</h6></strong><H5> Sector:HealthCare, Topic: Oil, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 6,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance:3 </p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [78.30, 20.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspEgypt</h6></strong><H5> Sector:HealthCare, Topic: Oil, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 6,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance:3 </p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [31.30, 30.30]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                            '<strong> <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspDenmark</h4></strong><H5>Sector:HealthCare,</H5><H5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Topic: Oil, </H5> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 6,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance: 3</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [9.30, 55.30]
+                        }
+                    },
+
+            
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong> <h4>"United States of America"</h6></strong><H5> Sector:HealthCare, Topic: Oil, </H3> <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Intensity: 4, </p><p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLikelihood: 6,</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Relevance:5 </p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-95.00, 38.00]
+                        }
+                    },
+
+                ]
+            }
+        });
+        // Add a layer showing the places.
+        map.addLayer({
+            'id': 'places',
+            'type': 'circle',
+            'source': 'places',
+            'paint': {
+                'circle-color': '#4264fb',
+                'circle-radius': 6,
+                'circle-stroke-width': 2,
+                'circle-stroke-color': '#ffffff'
+            }
+        });
+
+        // Create a popup, but don't add it to the map yet.
+        var popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        });
+
+        map.on('mouseenter', 'places', function (e) {
+            // Change the cursor style as a UI indicator.
+            map.getCanvas().style.cursor = 'pointer';
+
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var description = e.features[0].properties.description;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(coordinates).setHTML(description).addTo(map);
+        });
+
+        map.on('mouseleave', 'places', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+</script>
+
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+<script src="./js/jquery-3.5.1.js"></script>
+<script src="./js/jquery.dataTables.min.js"></script>
+<script src="./js/dataTables.bootstrap5.min.js"></script>
+<script src="./js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+</html>
